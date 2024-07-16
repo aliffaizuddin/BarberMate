@@ -15,9 +15,8 @@ class _MySplashScreenState extends State<MySplashScreen> {
     _navigateToNextScreen();
   }
 
-
-    _navigateToNextScreen() async {
-    // Simulate a delay (e.g., 4 seconds) before navigating to the next screen.
+  _navigateToNextScreen() async {
+    // Simulate a delay (e.g., 2 seconds) before navigating to the next screen.
     await Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
@@ -30,22 +29,31 @@ class _MySplashScreenState extends State<MySplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF1F0EF),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.network(
-              'https://image.similarpng.com/very-thumbnail/2021/08/Barbershop-logo-design-template-on-transparent-background-PNG.png',
-              height: 150.0, // Adjust the height as needed
-              width: 150.0, // Adjust the width as needed
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/Barber_Picture.jpg'),
+                fit: BoxFit.cover,
+              ),
             ),
-            const SizedBox(height: 20.0),
-            Text(
-              'BARBERMATE',
-              style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'BARBERMATE',
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

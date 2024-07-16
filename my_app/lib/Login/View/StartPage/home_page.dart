@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../StartPage/showCarouselModal.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -22,15 +21,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Page'),
-      ),
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.blue, Colors.white], // Adjust the colors as needed
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+          image: DecorationImage(
+            image: AssetImage('assets/Barber_Picture_2.jpg'), // Update the asset path if necessary
+            fit: BoxFit.cover,
           ),
         ),
         child: Center(
@@ -38,15 +33,23 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'This is the home page.',
-                style: TextStyle(fontSize: 16.0, color: Colors.white),
+                'REAL BARBER \n REAL MEN \n REAL CUT',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 25.0,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(height: 20.0),
               ElevatedButton(
                 onPressed: () {
                   showCarouselModal(context);
                 },
-                child: const Text('Let\'s Get Started'),
+                child: const Text(
+                  'Let\'s Get Started',
+                  style: TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.w500),
+                ),
               ),
             ],
           ),
